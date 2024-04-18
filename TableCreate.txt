@@ -1,0 +1,23 @@
+-- Table: public.pessoa
+
+-- DROP TABLE IF EXISTS public.pessoa;
+
+CREATE TABLE IF NOT EXISTS public.pessoa
+(
+    id integer NOT NULL DEFAULT nextval('pessoa_id_seq'::regclass),
+    nome character varying(200) COLLATE pg_catalog."default" NOT NULL,
+    nome_complemento character varying(1000) COLLATE pg_catalog."default" NOT NULL,
+    rg character varying(20) COLLATE pg_catalog."default",
+    cpf character varying(20) COLLATE pg_catalog."default",
+    email character varying(300) COLLATE pg_catalog."default",
+    telefone character varying(20) COLLATE pg_catalog."default",
+    id_anexo_sys integer,
+    data_alteracao timestamp without time zone,
+    data_cadastro timestamp without time zone,
+    CONSTRAINT pessoa_pkey PRIMARY KEY (id)
+)
+
+TABLESPACE pg_default;
+
+ALTER TABLE IF EXISTS public.pessoa
+    OWNER to postgres;
